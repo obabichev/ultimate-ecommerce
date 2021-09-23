@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  shop-api-db:
+    image: mongo:4.2.2
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    volumes:
+      - shop-api-db-data:/data/db
+    ports:
+      - 27017:27017
+
+volumes:
+  shop-api-db-data:
