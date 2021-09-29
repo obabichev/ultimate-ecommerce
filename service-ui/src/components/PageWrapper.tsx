@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Container, LinearProgress } from "@mui/material";
-import ApplicationBar from "../app/ApplicationBar";
+import ApplicationBar from "../app/bar/ApplicationBar";
 
 interface PageWrapperProps {
   loading?: boolean;

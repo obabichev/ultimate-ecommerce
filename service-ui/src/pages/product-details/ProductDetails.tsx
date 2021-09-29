@@ -15,19 +15,8 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
         <Typography variant="h5">{product.title}</Typography>
       </Grid>
       <Grid item xs={12}>
-        <Typography>
-          Price: {product.price} {product.currency}
-        </Typography>
-      </Grid>
-      <Grid item xs={12}>
-        <Typography>In stock: {product.amount}</Typography>
-      </Grid>
-      <Grid item xs={12}>
-        <Typography>Seller: {product.store.name}</Typography>
-      </Grid>
-      <Grid item xs={12}>
         <Typography variant="h6">Technical details:</Typography>
-        {Object.entries(product.technicalDetails).map(([key, value]) => (
+        {Object.entries(product.attributes).map(([key, value]) => (
           <Typography key={key}>
             {key}: {value}
           </Typography>

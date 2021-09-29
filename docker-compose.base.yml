@@ -1,0 +1,78 @@
+version: '3.9'
+
+services:
+  shop-api-db:
+    image: mongo:4.2.2
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    volumes:
+      - service-product-db-data:/data/db
+    ports:
+      - 27017:27017
+    networks:
+      - ecommerce
+
+  service-boarding-db:
+    image: postgres:12
+    environment:
+      POSTGRES_USER: "service-boarding-db"
+      POSTGRES_PASSWORD: "service-boarding-db"
+      POSTGRES_DB: "service-boarding-db"
+    ports:
+      - 5432:5432
+    volumes:
+      - service-boarding-db-data:/var/lib/postgresql/data/
+    networks:
+      - ecommerce
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - "2181"
+    hostname: zookeeper
+    networks:
+      - ecommerce
+
+  kafka:
+    image: wurstmeister/kafka
+    command: [ start-kafka.sh ]
+    ports:
+      - 29092:29092
+    hostname: kafka
+    environment:
+      KAFKA_CREATE_TOPICS: "boarding.catalog-item.out:1:1" # topic:partition:replicas
+      KAFKA_ADVERTISED_HOST_NAME: 0.0.0.0 # docker-machine ip
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_PORT: 9092
+
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT"
+      KAFKA_ADVERTISED_LISTENERS: "INSIDE://kafka:9092,OUTSIDE://localhost:29092"
+      KAFKA_LISTENERS: "INSIDE://:9092,OUTSIDE://:29092"
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+    depends_on:
+      - zookeeper
+    networks:
+      - ecommerce
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.15.0
+    environment:
+      "discovery.type": "single-node"
+    ports:
+      - 9200:9200
+      - 9300:9300
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+    networks:
+      - ecommerce
+
+volumes:
+  service-product-db-data:
+  service-boarding-db-data:
+  elasticsearch-data:
+
+networks:
+  ecommerce:
+    external: true

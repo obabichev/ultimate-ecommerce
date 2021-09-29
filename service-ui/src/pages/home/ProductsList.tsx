@@ -15,13 +15,10 @@ const ProductsList: React.FunctionComponent<ProductsListProps> = ({
     <List>
       {products.map((product) => (
         <ListItemButton
-          key={product.id}
-          onClick={() => onProductClick(product.id)}
+          key={product.usin}
+          onClick={() => onProductClick(product.usin)}
         >
-          <ListItemText
-            primary={product.title}
-            secondary={product.store.name}
-          />
+          <ListItemText primary={product.title} />
         </ListItemButton>
       ))}
     </List>

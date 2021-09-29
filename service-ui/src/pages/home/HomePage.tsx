@@ -1,13 +1,17 @@
 import React from "react";
 import PageWrapper from "../../components/PageWrapper";
-import { useGetProducts } from "../../service/product";
 import ProductsList from "./ProductsList";
 import { useHistory } from "react-router-dom";
+import { useSearchQuery } from "../../service/search";
+import { StringParam, useQueryParam } from "use-query-params";
 
 interface HomePageProps {}
 
 const HomePage: React.FunctionComponent<HomePageProps> = () => {
-  const { data: products, isLoading } = useGetProducts();
+  const [searchParam] = useQueryParam("search", StringParam);
+  const { data: products, isLoading } = useSearchQuery(searchParam ?? "", {
+    enabled: !!searchParam,
+  });
 
   const history = useHistory();
 

@@ -1,0 +1,43 @@
+{
+  "products": [
+    {
+      "title": "Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems",
+      "description": "Data is at the center of many challenges in system design today. Difficult issues need to be figured out, such as scalability, consistency, reliability, efficiency, and maintainability. In addition, we have an overwhelming variety of tools, including relational databases, NoSQL datastores, stream or batch processors, and message brokers. What are the right choices for your application? How do you make sense of all these buzzwords?\n\nIn this practical and comprehensive guide, author Martin Kleppmann helps you navigate this diverse landscape by examining the pros and cons of various technologies for processing and storing data. Software keeps changing, but the fundamental principles remain the same. With this book, software engineers and architects will learn how to apply those ideas in practice, and how to make full use of data in modern applications.",
+      "attributes": {
+        "isbn-10": "1449373321",
+        "isbn-13": "978-1449373320",
+        "publisher": "O'Reilly UK Ltd.; Revised edition (14 Mar. 2017)",
+        "language": "English",
+        "paperback": "590 pages",
+        "dimensions": "17.8 x 3.15 x 23.3 cm",
+        "author": "Martin Kleppmann"
+      }
+    },
+    {
+      "title": "Site Reliability Engineering: How Google Runs Production Systems",
+      "description": "The overwhelming majority of a software system’s lifespan is spent in use, not in design or implementation. So, why does conventional wisdom insist that software engineers focus primarily on the design and development of large-scale computing systems?\n\nIn this collection of essays and articles, key members of Google’s Site Reliability Team explain how and why their commitment to the entire lifecycle has enabled the company to successfully build, deploy, monitor, and maintain some of the largest software systems in the world. You’ll learn the principles and practices that enable Google engineers to make systems more scalable, reliable, and efficient—lessons directly applicable to your organization.",
+      "attributes": {
+        "isbn-10": "149192912X",
+        "isbn-13": "978-1491929124",
+        "publisher": "O'Reilly UK Ltd.; Illustrated edition (8 April 2016)",
+        "language": "English",
+        "paperback": "524 pages",
+        "dimensions": "17.8 x 2.84 x 23.3 cm",
+        "author": "Betsy Beyer, Chris Jones, Jennifer Petoff, Niall Richard Murphy"
+      }
+    },
+    {
+      "title": "Kafka: The Definitive Guide: Real-time data and stream processing at scale",
+      "description": "Every enterprise application creates data, whether it’s log messages, metrics, user activity, outgoing messages, or something else. And how to move all of this data becomes nearly as important as the data itself. If you’re an application architect, developer, or production engineer new to Apache Kafka, this practical guide shows you how to use this open source streaming platform to handle real-time data feeds.\n\nEngineers from Confluent and LinkedIn who are responsible for developing Kafka explain how to deploy production Kafka clusters, write reliable event-driven microservices, and build scalable stream-processing applications with this platform. Through detailed examples, you’ll learn Kafka’s design principles, reliability guarantees, key APIs, and architecture details, including the replication protocol, the controller, and the storage layer.",
+      "attributes": {
+        "isbn-10": "9781491936160",
+        "isbn-13": "978-1491936160",
+        "publisher": "O'Reilly UK Ltd. (10 Oct. 2017)",
+        "language": "English",
+        "paperback": "297 pages",
+        "dimensions": "17.8 x 1.71 x 23.3 cm",
+        "author": "Neha Narkhede, Gwen Shapira, Todd Palino"
+      }
+    }
+  ]
+}
