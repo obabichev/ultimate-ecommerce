@@ -4,7 +4,10 @@ services:
   service-ui:
     build:
       context: service-ui
+      target: dev
     restart: on-failure
+    volumes:
+      - ./service-ui/src:/app/src
     ports:
       - 3002:80
     networks:
@@ -17,6 +20,7 @@ services:
     environment:
       BACKEND_ENDPOINT: "http://service-product:8080"
       UI_ENDPOINT: "http://service-ui"
+      KRATOS_PUBLIC_ENDPOINT: "http://kratos:4433"
     ports:
       - 3001:80
     networks:

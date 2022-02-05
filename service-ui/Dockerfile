@@ -1,4 +1,4 @@
-FROM node:13.12.0-alpine as build
+FROM node:13.12.0-alpine as base
 
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
@@ -6,7 +6,15 @@ ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json ./
 COPY package-lock.json ./
 RUN npm ci --silent
-COPY . ./
+COPY tsconfig.json tsconfig.json
+COPY public public
+COPY src src
+
+FROM base as dev
+
+CMD ["npm", "run", "dev"]
+
+FROM base as build
 
 RUN npm run build
 
