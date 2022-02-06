@@ -13,11 +13,12 @@ import { useAuthContext } from "../AuthContext";
 import { AccountCircle } from "@mui/icons-material";
 import { useHistory } from "react-router-dom";
 import Search from "./Search";
+import { formatProfileName } from "../../utils/format";
 
 interface ApplicationBarProps {}
 
 const ApplicationBar: React.FunctionComponent<ApplicationBarProps> = () => {
-  const { user, logout } = useAuthContext();
+  const { user } = useAuthContext();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const history = useHistory();
 
@@ -33,7 +34,6 @@ const ApplicationBar: React.FunctionComponent<ApplicationBarProps> = () => {
   };
 
   const handleLogout = () => {
-    logout();
     setAnchorEl(null);
   };
 
@@ -43,7 +43,7 @@ const ApplicationBar: React.FunctionComponent<ApplicationBarProps> = () => {
         <Typography onClick={navigateHomePage} variant="h6" component="div">
           Ultimate e-commerce
         </Typography>
-          <Search />
+        <Search />
         {!user && (
           <Button color="inherit" onClick={navigateLoginPage}>
             Login
@@ -77,7 +77,7 @@ const ApplicationBar: React.FunctionComponent<ApplicationBarProps> = () => {
               onClose={handleClose}
             >
               <Box pt={1} pb={1} pl={2} pr={2}>
-                <Typography>{user.username}</Typography>
+                <Typography>{formatProfileName(user)}</Typography>
               </Box>
               <MenuItem onClick={handleLogout}>Logout</MenuItem>
             </Menu>

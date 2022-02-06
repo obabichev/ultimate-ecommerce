@@ -10,7 +10,7 @@ import { useGetLoginFlow } from "../../service/auth";
 interface LoginPageProps {}
 
 const LoginPage: React.FunctionComponent<LoginPageProps> = () => {
-  const { login } = useAuthContext();
+  // const { login } = useAuthContext();
   const history = useHistory();
 
   const [flow] = useQueryParam("flow", StringParam);
@@ -23,7 +23,7 @@ const LoginPage: React.FunctionComponent<LoginPageProps> = () => {
 
   const mutation = useGetOrCreateUserMutation({
     onSuccess: (user) => {
-      login(user);
+      // login(user);
       navigateHomePage();
     },
   });
