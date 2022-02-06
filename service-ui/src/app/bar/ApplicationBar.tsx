@@ -4,6 +4,7 @@ import {
   Box,
   Button,
   IconButton,
+  Link,
   Menu,
   MenuItem,
   Toolbar,
@@ -45,7 +46,10 @@ const ApplicationBar: React.FunctionComponent<ApplicationBarProps> = () => {
         </Typography>
         <Search />
         {!user && (
-          <Button color="inherit" onClick={navigateLoginPage}>
+          <Button
+            color="inherit"
+            href="/.ory/kratos/public/self-service/login/browser"
+          >
             Login
           </Button>
         )}

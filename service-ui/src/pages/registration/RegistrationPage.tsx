@@ -1,7 +1,9 @@
 import React from "react";
-import { useGetLoginFlow, useGetRegistrationFlow } from "../../service/auth";
+import { useGetRegistrationFlow } from "../../service/auth";
 import { StringParam, useQueryParam } from "use-query-params";
-import RegistrationForm from "../../components/ory/RegistrationForm";
+import OryForm from "../../components/ory/OryForm";
+import PageWrapper from "../../components/PageWrapper";
+import ThinMiddleBox from "../../components/ThinMiddleBox";
 
 interface RegistrationPageProps {}
 
@@ -13,7 +15,11 @@ const RegistrationPage: React.FunctionComponent<RegistrationPageProps> =
     console.log("[obabichev]", { data: flowQuery.data });
 
     return (
-      <div>{flowQuery.data && <RegistrationForm flow={flowQuery.data} />}</div>
+      <PageWrapper>
+        <ThinMiddleBox>
+          {flowQuery.data && <OryForm flow={flowQuery.data} />}
+        </ThinMiddleBox>
+      </PageWrapper>
     );
   };
 

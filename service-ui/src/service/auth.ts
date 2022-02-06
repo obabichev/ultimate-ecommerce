@@ -1,9 +1,9 @@
 import { request as __request } from "../generated/core/request";
 import { useQuery, UseQueryOptions } from "react-query";
-import { RegistrationFlow } from "../auth.types";
+import { OryFlow } from "../auth.types";
 import { Profile } from "../profile.types";
 
-export const fetchLoginFlow = async (flow: string): Promise<any> => {
+export const fetchLoginFlow = async (flow: string): Promise<OryFlow> => {
   const result = await __request({
     method: "GET",
     path: `/self-service/login/flows`,
@@ -21,7 +21,7 @@ export const fetchLoginFlow = async (flow: string): Promise<any> => {
 
 export const useGetLoginFlow = (
   flow: string,
-  options?: UseQueryOptions<any>
+  options?: UseQueryOptions<OryFlow>
 ) => {
   return useQuery({
     queryKey: ["get-login-flow", flow],
@@ -30,9 +30,7 @@ export const useGetLoginFlow = (
   });
 };
 
-export const fetchRegistrationFlow = async (
-  flow: string
-): Promise<RegistrationFlow> => {
+export const fetchRegistrationFlow = async (flow: string): Promise<OryFlow> => {
   const result = await __request({
     method: "GET",
     path: `/self-service/registration/flows`,
@@ -50,7 +48,7 @@ export const fetchRegistrationFlow = async (
 
 export const useGetRegistrationFlow = (
   flow: string,
-  options?: UseQueryOptions<RegistrationFlow>
+  options?: UseQueryOptions<OryFlow>
 ) => {
   return useQuery({
     queryKey: ["get-registration-flow", flow],

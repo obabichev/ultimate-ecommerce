@@ -6,6 +6,9 @@ import { useAuthContext } from "../../app/AuthContext";
 import { useHistory, useParams } from "react-router-dom";
 import { StringParam, useQueryParam } from "use-query-params";
 import { useGetLoginFlow } from "../../service/auth";
+import OryForm from "../../components/ory/OryForm";
+import { Button } from "@mui/material";
+import ThinMiddleBox from "../../components/ThinMiddleBox";
 
 interface LoginPageProps {}
 
@@ -30,7 +33,16 @@ const LoginPage: React.FunctionComponent<LoginPageProps> = () => {
 
   return (
     <PageWrapper loading={mutation.isLoading}>
-      <LoginForm onSubmit={mutation.mutate} />
+      <ThinMiddleBox>
+        {flowQuery.data && <OryForm flow={flowQuery.data} />}
+
+        <Button
+          color="primary"
+          href="/.ory/kratos/public/self-service/registration/browser"
+        >
+          Register
+        </Button>
+      </ThinMiddleBox>
     </PageWrapper>
   );
 };

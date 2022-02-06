@@ -1,4 +1,4 @@
-export interface RegistrationFlow {
+export interface OryFlow {
   id: string;
   type: string;
   expires_at: Date;
