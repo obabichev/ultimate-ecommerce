@@ -38,6 +38,9 @@ docker-compose -f docker-compose.base.yml -f docker-compose.service.yml -f docke
 
 http://127.0.0.1:4455/.ory/kratos/public/self-service/login/browser
 http://127.0.0.1:4455/.ory/kratos/public/self-service/registration/browser
+http://127.0.0.1:4455/.ory/kratos/public/self-service/logout/browser
 http://127.0.0.1:4433/self-service/login/browser
 http://127.0.0.1:4433/self-service/registration/browser
 http://127.0.0.1:4455/self-service/login/flows?id=d143be8a-b914-4a8f-b5b1-23f0b7eacbc6
+
+sudo certbot --nginx -d ultimate-ecommerce.v-query.com -d auth.ultimate-ecommerce.v-query.com 
