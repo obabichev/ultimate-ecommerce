@@ -16,6 +16,7 @@ services:
 
   service-boarding-db:
     image: postgres:12
+    restart: always
     environment:
       POSTGRES_USER: "service-boarding-db"
       POSTGRES_PASSWORD: "service-boarding-db"
@@ -32,12 +33,14 @@ services:
     ports:
       - "2181"
     hostname: zookeeper
+    restart: always
     networks:
       - ecommerce
 
   kafka:
     image: wurstmeister/kafka
     command: [ start-kafka.sh ]
+    restart: always
     ports:
       - 29092:29092
     hostname: kafka
