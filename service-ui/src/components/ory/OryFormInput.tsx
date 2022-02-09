@@ -17,18 +17,26 @@ const OryFormInput: React.FunctionComponent<OryFormInputProps> = ({ node }) => {
     );
   }
   if (node.attributes.type === "submit") {
+    // TODO fix it
     return (
-      <Button
-        fullWidth
-        variant="contained"
-        color="primary"
+      <input
         name={node.attributes.name}
         type={node.attributes.type}
         value={node.attributes.value ?? ""}
-      >
-        Submit
-      </Button>
+      />
     );
+    // return (
+    //   <Button
+    //     fullWidth
+    //     variant="contained"
+    //     color="primary"
+    //     name={node.attributes.name}
+    //     type={node.attributes.type}
+    //     value={node.attributes.value ?? ""}
+    //   >
+    //     Submit
+    //   </Button>
+    // );
   }
   return (
     <TextField
