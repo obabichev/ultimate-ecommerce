@@ -4,7 +4,7 @@ services:
   kratos-migrate:
     image: oryd/kratos:v0.8.0-alpha.3-sqlite
     environment:
-      - DSN=sqlite:///var/lib/sqlite/db.sqlite?_fk=true&mode=rwc
+      - DSN=postgres://kratos:secret@postgresd:5432/kratos?sslmode=disable&max_conns=20&max_idle_conns=4
     volumes:
       - type: volume
         source: kratos-sqlite
@@ -17,17 +17,20 @@ services:
     restart: on-failure
     networks:
       - ecommerce
+    depends_on:
+      - postgresd
 
   kratos:
     depends_on:
       - kratos-migrate
+      - postgresd
     image: oryd/kratos:v0.8.0-alpha.3-sqlite
     ports:
       - '4433:4433' # public
       - '4434:4434' # admin
     restart: unless-stopped
     environment:
-      - DSN=sqlite:///var/lib/sqlite/db.sqlite?_fk=true
+      - DSN=postgres://kratos:secret@postgresd:5432/kratos?sslmode=disable&max_conns=20&max_idle_conns=4
       - LOG_LEVEL=trace
     command: serve -c /etc/config/kratos/kratos.yml --dev --watch-courier
     volumes:
@@ -65,6 +68,17 @@ services:
       - ecommerce
     volumes:
       - ./deployment/digitalocean/contrib/quickstart/oathkeeper:/etc/config/oathkeeper
+
+  postgresd:
+    image: postgres:9.6
+    ports:
+      - "5440:5432"
+    environment:
+      - POSTGRES_USER=kratos
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=kratos
+    networks:
+      - ecommerce
 
 volumes:
   kratos-sqlite:
