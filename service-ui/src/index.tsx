@@ -3,6 +3,9 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { App } from "./app/App";
+import { OpenAPI } from "./generated";
+
+OpenAPI.WITH_CREDENTIALS = true;
 
 ReactDOM.render(
   <React.StrictMode>
