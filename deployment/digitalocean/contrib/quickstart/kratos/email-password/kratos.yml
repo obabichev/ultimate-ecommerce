@@ -2,16 +2,16 @@ version: v0.7.1-alpha.1
 
 serve:
   public:
-    base_url: http://auth.ultimate-ecommerce.v-query.com/
+    base_url: https://auth.ultimate-ecommerce.v-query.com/
     cors:
       enabled: false
   admin:
     base_url: http://kratos:4434/
 
 selfservice:
-  default_browser_return_url: http://ultimate-ecommerce.v-query.com/
+  default_browser_return_url: https://ultimate-ecommerce.v-query.com/
   whitelisted_return_urls:
-    - http://ultimate-ecommerce.v-query.com
+    - https://ultimate-ecommerce.v-query.com
     - http://127.0.0.1:3000
 
   methods:
@@ -20,33 +20,33 @@ selfservice:
 
   flows:
     error:
-      ui_url: http://ultimate-ecommerce.v-query.com/error
+      ui_url: https://ultimate-ecommerce.v-query.com/error
 
     settings:
-      ui_url: http://ultimate-ecommerce.v-query.com/settings
+      ui_url: https://ultimate-ecommerce.v-query.com/settings
       privileged_session_max_age: 15m
 
     recovery:
       enabled: true
-      ui_url: http://ultimate-ecommerce.v-query.com/recovery
+      ui_url: https://ultimate-ecommerce.v-query.com/recovery
 
     verification:
       enabled: true
-      ui_url: http://ultimate-ecommerce.v-query.com/verification
+      ui_url: https://ultimate-ecommerce.v-query.com/verification
       after:
-        default_browser_return_url: http://ultimate-ecommerce.v-query.com/
+        default_browser_return_url: https://ultimate-ecommerce.v-query.com/
 
     logout:
       after:
-        default_browser_return_url: http://ultimate-ecommerce.v-query.com/login
+        default_browser_return_url: https://ultimate-ecommerce.v-query.com/login
 
     login:
-      ui_url: http://ultimate-ecommerce.v-query.com/login
+      ui_url: https://ultimate-ecommerce.v-query.com/login
       lifespan: 10m
 
     registration:
       lifespan: 10m
-      ui_url: http://ultimate-ecommerce.v-query.com/registration
+      ui_url: https://ultimate-ecommerce.v-query.com/registration
       after:
         password:
           hooks:

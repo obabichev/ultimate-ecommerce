@@ -9,24 +9,24 @@ interface OryFormInputProps {
 const OryFormInput: React.FunctionComponent<OryFormInputProps> = ({ node }) => {
   if (node.attributes.type === "submit") {
     return (
-      <input>
+      <input
         name={node.attributes.name}
         type={node.attributes.type}
         disabled={node.attributes.disabled}
         value={node.attributes.value}
-      </input>
+      ></input>
     );
   }
 
   return (
     <div>
       <label>{node.meta.label?.text}</label>
-      <input>
+      <input
         name={node.attributes.name}
         type={node.attributes.type}
         disabled={node.attributes.disabled}
         defaultValue={node.attributes.value}
-      </input>
+      ></input>
     </div>
   );
 
