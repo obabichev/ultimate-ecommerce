@@ -4,7 +4,8 @@ serve:
   public:
     base_url: http://127.0.0.1:3000/
     cors:
-      enabled: true
+      enabled: false
+#      enabled: true
   admin:
     base_url: http://kratos:4434/
 
