@@ -4,7 +4,7 @@ serve:
   public:
     base_url: https://auth.ultimate-ecommerce.v-query.com/
     cors:
-      enabled: false
+      enabled: true
   admin:
     base_url: http://kratos:4434/
 
