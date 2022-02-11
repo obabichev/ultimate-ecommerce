@@ -31,13 +31,12 @@
       - DELETE
       - PATCH
   authenticators:
-#    - handler: cookie_session
+    - handler: cookie_session
     - handler: anonymous
   authorizer:
     handler: allow
   mutators:
-#    - handler: id_token
-    - handler: noop
+    - handler: id_token
 
 
 #
