@@ -3,6 +3,10 @@ version: v0.7.1-alpha.1
 serve:
   public:
     base_url: https://auth.ultimate-ecommerce.v-query.com/
+    domain_aliases:
+      - match_domain: 127.0.0.1:3000
+        base_path: /
+        scheme: http
     cors:
       enabled: true
   admin:
