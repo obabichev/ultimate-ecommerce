@@ -82,6 +82,6 @@ courier:
   smtp:
     connection_uri: smtps://test:test@mailslurper:1025/?skip_ssl_verify=true
 
-#session:
-#  cookie:
-#    domain: v-query.com
+session:
+  cookie:
+    domain: v-query.com
