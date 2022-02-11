@@ -12,7 +12,6 @@ selfservice:
   default_browser_return_url: https://ultimate-ecommerce.v-query.com/
   whitelisted_return_urls:
     - https://ultimate-ecommerce.v-query.com
-    - http://127.0.0.1:3000
 
   methods:
     password:
@@ -81,6 +80,9 @@ identity:
 courier:
   smtp:
     connection_uri: smtps://test:test@mailslurper:1025/?skip_ssl_verify=true
+
+cookies:
+  domain: v-query.com
 
 session:
   cookie:
