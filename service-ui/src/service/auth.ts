@@ -77,3 +77,30 @@ export const useGetProfile = (options?: UseQueryOptions<Profile>) => {
     ...options,
   });
 };
+
+export const fetchAuthError = async (id: string): Promise<any> => {
+  const result = await __request({
+    method: "GET",
+    path: `/self-service/errors`,
+    query: {
+      id,
+    },
+    errors: {
+      401: `Unauthorized`,
+      403: `Forbidden`,
+      404: `Not Found`,
+    },
+  });
+  return result.body;
+};
+
+export const useGetAuthError = (
+    id: string,
+    options?: UseQueryOptions<any>
+) => {
+  return useQuery({
+    queryKey: ["get-auth-error", id],
+    queryFn: () => fetchAuthError(id),
+    ...options,
+  });
+};
