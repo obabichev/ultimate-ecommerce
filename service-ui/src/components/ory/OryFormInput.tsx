@@ -36,6 +36,7 @@ const OryFormInput: React.FunctionComponent<OryFormInputProps> = ({ node }) => {
         name={node.attributes.name}
         type={node.attributes.type}
         value={node.attributes.value ?? ""}
+        required={node.attributes.required}
       />
     );
   }
