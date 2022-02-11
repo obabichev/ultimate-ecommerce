@@ -7,72 +7,64 @@ interface OryFormInputProps {
 }
 
 const OryFormInput: React.FunctionComponent<OryFormInputProps> = ({ node }) => {
-  if (node.attributes.type === "submit") {
-    return (
-      <input
-        name={node.attributes.name}
-        type={node.attributes.type}
-        disabled={node.attributes.disabled}
-        value={node.attributes.value}
-      ></input>
-    );
-  }
-
-  return (
-    <div>
-      <label>{node.meta.label?.text}</label>
-      <input
-        name={node.attributes.name}
-        type={node.attributes.type}
-        disabled={node.attributes.disabled}
-        defaultValue={node.attributes.value}
-      ></input>
-    </div>
-  );
-
-  // if (node.attributes.type === "hidden") {
+  // if (node.attributes.type === "submit") {
   //   return (
   //     <input
   //       name={node.attributes.name}
   //       type={node.attributes.type}
-  //       value={node.attributes.value ?? ""}
-  //     />
+  //       disabled={node.attributes.disabled}
+  //       value={node.attributes.value}
+  //     ></input>
   //   );
   // }
-  // if (node.attributes.type === "submit") {
-  // TODO fix it
+  //
   // return (
-  //   <input
-  //     name={node.attributes.name}
-  //     type={node.attributes.type}
-  //     value={node.attributes.value ?? ""}
-  //   />
+  //   <div>
+  //     <label>{node.meta.label?.text}</label>
+  //     <input
+  //       name={node.attributes.name}
+  //       type={node.attributes.type}
+  //       disabled={node.attributes.disabled}
+  //       defaultValue={node.attributes.value}
+  //     ></input>
+  //   </div>
   // );
-  // return (
-  //   <Button
-  //     fullWidth
-  //     variant="contained"
-  //     color="primary"
-  //     name={node.attributes.name}
-  //     type={node.attributes.type}
-  //     value={node.attributes.value ?? ""}
-  //   >
-  //     Submit
-  //   </Button>
-  // );
-  // }
-  // return (
-  //   <TextField
-  //     name={node.attributes.name}
-  //     type={node.attributes.type}
-  //     defaultValue={node.attributes.value ?? ""}
-  //     required={node.attributes.required ?? false}
-  //     disabled={node.attributes.disabled ?? false}
-  //     fullWidth
-  //     variant="outlined"
-  //     label={node.meta.label?.text ?? ""}
-  //   />
-  // );
+
+  if (node.attributes.type === "hidden") {
+    return (
+      <input
+        name={node.attributes.name}
+        type={node.attributes.type}
+        value={node.attributes.value ?? ""}
+      />
+    );
+  }
+  if (node.attributes.type === "submit") {
+    return (
+      <Button
+        fullWidth
+        variant="contained"
+        color="primary"
+        name={node.attributes.name}
+        type={node.attributes.type}
+        value={node.attributes.value ?? ""}
+      >
+        Submit
+      </Button>
+    );
+  }
+  return (
+    <TextField
+      name={node.attributes.name}
+      type={node.attributes.type}
+      defaultValue={node.attributes.value ?? ""}
+      required={node.attributes.required ?? false}
+      disabled={node.attributes.disabled ?? false}
+      fullWidth
+      variant="outlined"
+      label={node.meta.label?.text ?? ""}
+    />
+  );
 };
 
 export default OryFormInput;
