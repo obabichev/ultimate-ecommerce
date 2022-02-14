@@ -16,7 +16,8 @@ class BoardingService(
             usin = usin.id,
             title = dto.title,
             description = dto.description,
-            attributes = dto.attributes
+            attributes = dto.attributes,
+            images = dto.images
         )
         kafkaService.sendProductRegisteredEvent(product)
         return usin

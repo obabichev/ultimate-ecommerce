@@ -9,7 +9,8 @@ data class Product(
     val usin: String,
     val title: String,
     val description: String,
-    val attributes: Map<String, String>
+    val attributes: Map<String, String>,
+    val images: List<String>
 ) {
     companion object {
         fun fromEventProduct(product: com.ultimate.ecommerce.servicesearchconsumer.event.Product) =
@@ -17,7 +18,8 @@ data class Product(
                 usin = product.usin,
                 title = product.title,
                 description = product.description,
-                attributes = product.attributes
+                attributes = product.attributes,
+                images = product.images
             )
     }
 }

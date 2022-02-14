@@ -9,5 +9,7 @@ data class RegisterProductRequestDTO(
 
     val description: String,
 
-    val attributes: Map<String, String>
+    val attributes: Map<String, String>,
+
+    val images: List<String>
 )

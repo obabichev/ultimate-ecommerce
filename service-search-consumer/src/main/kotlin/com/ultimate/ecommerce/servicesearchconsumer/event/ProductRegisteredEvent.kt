@@ -15,5 +15,7 @@ data class Product(
     @JsonProperty("description")
     val description: String,
     @JsonProperty("attributes")
-    val attributes: Map<String, String>
+    val attributes: Map<String, String>,
+    @JsonProperty("images")
+    val images: List<String>
 )
