@@ -17,5 +17,27 @@ data class Product(
     @JsonProperty("attributes")
     val attributes: Map<String, String>,
     @JsonProperty("images")
-    val images: List<String>
+    val images: List<String>,
+    @JsonProperty("ratings")
+    val ratings: List<Rating>,
+    @JsonProperty("sellOptions")
+    val sellOptions: List<SellOption>,
+    @JsonProperty("tag")
+    val tag: String
+)
+
+data class Rating(
+    @JsonProperty("rate")
+    val rate: Int,
+    @JsonProperty("amount")
+    val amount: Int
+)
+
+data class SellOption(
+    @JsonProperty("price")
+    val price: Long,
+    @JsonProperty("currency")
+    val currency: String,
+    @JsonProperty("type")
+    val type: String
 )

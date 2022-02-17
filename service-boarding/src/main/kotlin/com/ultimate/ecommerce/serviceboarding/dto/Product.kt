@@ -5,5 +5,8 @@ data class Product(
     val title: String,
     val description: String,
     val attributes: Map<String, String>,
-    val images: List<String>
+    val images: List<String>,
+    val ratings: List<Rating>,
+    val sellOptions: List<SellOption>,
+    val tag: String
 )
