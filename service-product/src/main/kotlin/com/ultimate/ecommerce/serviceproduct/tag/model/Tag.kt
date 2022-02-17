@@ -9,7 +9,12 @@ data class Tag(
 val MOCK_TAGS = listOf(
     Tag("books", null, "Books"),
     Tag("computing-and-internet", "books", "Computing & Internet"),
+
     Tag("computing-and-internet-databases", "computing-and-internet", "Computing & Internet Databases"),
+    Tag("programming-and-web-design", "computing-and-internet", "Programming & Web Design"),
+
+//    Tag("programming-languages", "programming-and-web-design", "Programming Languages"),
+
     Tag("it-training-and-professions", "computing-and-internet", "IT Training & Professions"),
     Tag("graphics-and-multimedia-software", "computing-and-internet", "Graphics & Multimedia Software"),
     Tag("hardware", "computing-and-internet", "Hardware"),
