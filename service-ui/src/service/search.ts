@@ -1,5 +1,10 @@
 import { useQuery, UseQueryOptions } from "react-query";
-import { Product, SearchControllerService } from "../generated";
+import {
+  Product,
+  SearchControllerService,
+  Tag,
+  TagControllerService,
+} from "../generated";
 
 export const useSearchQuery = (
   text: string,
@@ -19,6 +24,14 @@ export const useGetProductQuery = (
   return useQuery({
     queryKey: ["product-search-get-by-usin", usin],
     queryFn: () => SearchControllerService.getProductUsingGet(usin),
+    ...options,
+  });
+};
+
+export const useGetTags = (options?: UseQueryOptions<Tag[]>) => {
+  return useQuery({
+    queryKey: ["get-tags"],
+    queryFn: () => TagControllerService.getTagsUsingGet(),
     ...options,
   });
 };
