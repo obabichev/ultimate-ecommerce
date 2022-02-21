@@ -46,6 +46,7 @@ http://127.0.0.1:4455/self-service/login/flows?id=d143be8a-b914-4a8f-b5b1-23f0b7
 sudo certbot --nginx -d ultimate-ecommerce.v-query.com -d auth.ultimate-ecommerce.v-query.com -d mail.ultimate-ecommerce.v-query.com
 
 docker-compose -f docker-compose.base.yml -f docker-compose.service.yml -f docker-compose.ui.yml -f docker-compose.auth.yml up --build -d
+docker-compose -f docker-compose.base.yml -f docker-compose.service.yml -f docker-compose.ui.digitalocean.yml -f docker-compose.auth.digitalocean.yml up --build -d
 
 
 ## Scripts

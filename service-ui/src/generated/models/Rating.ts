@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type Store = {
-    id: string;
-    name: string;
+export type Rating = {
+    amount: number;
+    rate: number;
 }

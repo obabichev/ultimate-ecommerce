@@ -34,7 +34,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "BROWSER=none PORT=80 react-scripts start",
-    "codegen": "openapi --input http://localhost:8080/v2/api-docs --output ./src/generated"
+    "codegen": "openapi --input http://localhost:8082/v2/api-docs --output ./src/generated"
   },
   "eslintConfig": {
     "extends": [

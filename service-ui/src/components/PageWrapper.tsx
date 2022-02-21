@@ -11,11 +11,14 @@ const PageWrapper: React.FunctionComponent<PageWrapperProps> = ({
   loading,
 }) => {
   return (
-    <Container>
+    <div>
       <ApplicationBar />
-      {loading && <LinearProgress />}
-      <Box m={2}>{children}</Box>
-    </Container>
+
+      <Container>
+        {loading && <LinearProgress />}
+        <Box m={2}>{children}</Box>
+      </Container>
+    </div>
   );
 };
 
