@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import PageWrapper from "../../components/PageWrapper";
 import ProductsList from "./ProductsList";
 import { useHistory } from "react-router-dom";
@@ -12,9 +12,19 @@ interface HomePageProps {}
 
 const HomePage: React.FunctionComponent<HomePageProps> = () => {
   const [searchParam] = useQueryParam("search", StringParam);
+  const [tagParam] = useQueryParam("tag", StringParam);
   const productsQuery = useSearchQuery(searchParam ?? "", {
     enabled: !!searchParam,
   });
+
+  const products = useMemo(
+    () =>
+      productsQuery.data?.filter(
+        (product) => !tagParam || product.tag === tagParam
+      ) ?? [],
+    [tagParam, productsQuery.data]
+  );
+
   const tagsQuery = useGetTags();
 
   const history = useHistory();
@@ -25,10 +35,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
     <PageWrapper loading={isQueriesLoading(productsQuery, tagsQuery)}>
       <Box sx={{ display: "flex", flexDirection: "row" }}>
         {tagsQuery.data && <TagsView tags={tagsQuery.data} />}
-        <ProductsList
-          onProductClick={handleClickProduct}
-          products={productsQuery.data ?? []}
-        />
+        <ProductsList onProductClick={handleClickProduct} products={products} />
       </Box>
     </PageWrapper>
   );
