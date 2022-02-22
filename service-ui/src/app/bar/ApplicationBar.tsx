@@ -48,7 +48,7 @@ const ApplicationBar: React.FunctionComponent<ApplicationBarProps> = () => {
         {!user && (
           <Button
             color="inherit"
-            href="/.ory/kratos/public/self-service/login/browser"
+            href="/login"
           >
             Login
           </Button>

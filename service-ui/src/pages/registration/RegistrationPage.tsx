@@ -10,24 +10,19 @@ interface RegistrationPageProps {}
 
 const RegistrationPage: React.FunctionComponent<RegistrationPageProps> =
   ({}) => {
-    // const [flow] = useQueryParam("flow", StringParam);
-    // const flowQuery = useGetRegistrationFlow(flow ?? "", { enabled: !!flow });
-    //
-    // console.log("[obabichev]", { data: flowQuery.data });
-
-    const query = useGetRegistrationFlowRestMutation();
+    const mutation = useGetRegistrationFlowRestMutation();
 
     useEffect(() => {
       console.log("[obabichev]", { mutation: true });
-      query.mutate();
+      mutation.mutate();
     }, []);
 
-    console.log("[obabichev]", { data: query.data });
+    console.log("[obabichev]", { data: mutation.data });
 
     return (
       <PageWrapper>
         <ThinMiddleBox>
-          {query.data && <OryForm flow={query.data} />}
+          {mutation.data && <OryForm flow={mutation.data} />}
         </ThinMiddleBox>
       </PageWrapper>
     );
