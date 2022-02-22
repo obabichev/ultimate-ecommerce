@@ -34,8 +34,14 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
   return (
     <PageWrapper loading={isQueriesLoading(productsQuery, tagsQuery)}>
       <Box sx={{ display: "flex", flexDirection: "row" }}>
-        {tagsQuery.data && <TagsView tags={tagsQuery.data} />}
-        <ProductsList onProductClick={handleClickProduct} products={products} />
+        {tagsQuery.data && (
+          <Box sx={{ width: 240 }}>
+            <TagsView tags={tagsQuery.data} />
+          </Box>
+        )}
+        <Box sx={{flex: 1}}>
+          <ProductsList onProductClick={handleClickProduct} products={products} />
+        </Box>
       </Box>
     </PageWrapper>
   );

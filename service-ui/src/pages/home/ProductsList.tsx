@@ -1,6 +1,7 @@
 import React from "react";
 import { Product } from "../../generated";
 import { List, ListItemButton, ListItemText } from "@mui/material";
+import ProductListItem from "./ProductListItem";
 
 interface ProductsListProps {
   products: Product[];
@@ -12,16 +13,21 @@ const ProductsList: React.FunctionComponent<ProductsListProps> = ({
   onProductClick,
 }) => {
   return (
-    <List>
+    <div>
       {products.map((product) => (
-        <ListItemButton
+        <ProductListItem
           key={product.usin}
-          onClick={() => onProductClick(product.usin)}
-        >
-          <ListItemText primary={product.title} />
-        </ListItemButton>
+          product={product}
+          onProductClick={onProductClick}
+        />
+        // <ListItemButton
+        //   key={product.usin}
+        //   onClick={() => onProductClick(product.usin)}
+        // >
+        //   <ListItemText primary={product.title} />
+        // </ListItemButton>
       ))}
-    </List>
+    </div>
   );
 };
 
