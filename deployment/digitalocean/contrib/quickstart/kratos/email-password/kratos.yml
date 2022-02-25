@@ -8,8 +8,8 @@ serve:
         base_path: /
         scheme: https
     cors:
-#      enabled: false
-      enabled: true
+      enabled: false
+#      enabled: true
   admin:
     base_url: http://kratos:4434/
 
