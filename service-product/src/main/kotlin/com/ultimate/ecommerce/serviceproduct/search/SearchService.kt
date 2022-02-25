@@ -4,7 +4,9 @@ import com.ultimate.ecommerce.serviceproduct.search.model.Product
 import org.elasticsearch.index.query.QueryBuilders
 import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate
 import org.springframework.data.elasticsearch.core.query.IndexQueryBuilder
+import org.springframework.data.elasticsearch.core.query.MoreLikeThisQuery
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder
+import org.springframework.data.elasticsearch.core.query.Query
 import org.springframework.stereotype.Service
 import kotlin.streams.toList
 
