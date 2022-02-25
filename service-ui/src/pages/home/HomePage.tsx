@@ -13,8 +13,8 @@ interface HomePageProps {}
 const HomePage: React.FunctionComponent<HomePageProps> = () => {
   const [searchParam] = useQueryParam("search", StringParam);
   const [tagParam] = useQueryParam("tag", StringParam);
-  const productsQuery = useSearchQuery(searchParam ?? "", {
-    enabled: !!searchParam,
+  const productsQuery = useSearchQuery(searchParam ?? "", tagParam ?? "", {
+    enabled: !!searchParam || !!tagParam,
   });
 
   const products = useMemo(
@@ -39,8 +39,11 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
             <TagsView tags={tagsQuery.data} />
           </Box>
         )}
-        <Box sx={{flex: 1}}>
-          <ProductsList onProductClick={handleClickProduct} products={products} />
+        <Box sx={{ flex: 1 }}>
+          <ProductsList
+            onProductClick={handleClickProduct}
+            products={products}
+          />
         </Box>
       </Box>
     </PageWrapper>

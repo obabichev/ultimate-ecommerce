@@ -8,17 +8,20 @@ export class SearchControllerService {
 
     /**
      * searchProducts
+     * @param tag tag
      * @param text text
      * @returns Product OK
      * @throws ApiError
      */
     public static async searchProductsUsingGet(
+        tag: string,
         text: string,
     ): Promise<Array<Product>> {
         const result = await __request({
             method: 'GET',
             path: `/api/search`,
             query: {
+                'tag': tag,
                 'text': text,
             },
             errors: {

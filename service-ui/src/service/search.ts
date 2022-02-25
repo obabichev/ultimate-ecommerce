@@ -8,11 +8,12 @@ import {
 
 export const useSearchQuery = (
   text: string,
+  tag: string,
   options?: UseQueryOptions<Array<Product>>
 ) => {
   return useQuery({
-    queryKey: ["product-search", text],
-    queryFn: () => SearchControllerService.searchProductsUsingGet(text),
+    queryKey: ["product-search", text, tag],
+    queryFn: () => SearchControllerService.searchProductsUsingGet(text, tag),
     ...options,
   });
 };
