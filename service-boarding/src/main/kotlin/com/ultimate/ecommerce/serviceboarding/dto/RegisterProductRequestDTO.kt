@@ -7,10 +7,13 @@ data class RegisterProductRequestDTO(
     @field:NotBlank
     val title: String,
 
+    @field:NotBlank
     val description: String,
 
+    @field:NotBlank
     val attributes: Map<String, String>,
 
+    @field:NotBlank
     val images: List<String>,
 
     val ratings: List<Rating>,

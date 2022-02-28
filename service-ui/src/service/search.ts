@@ -4,7 +4,7 @@ import {
   SearchControllerService,
   Tag,
   TagControllerService,
-} from "../generated";
+} from "../generated/service-product";
 
 export const useSearchQuery = (
   text: string,

@@ -1,4 +1,4 @@
-import { request as __request } from "../generated/core/request";
+import { request as __request } from "../generated/service-product/core/request";
 import { useQuery, UseQueryOptions } from "react-query";
 import { OryFlow } from "../auth.types";
 import { Profile } from "../profile.types";

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class TagController {
-    @GetMapping("/api/tag")
+    @GetMapping("/api/service-product/tag")
     fun getTags(): List<Tag> {
         return MOCK_TAGS
     }

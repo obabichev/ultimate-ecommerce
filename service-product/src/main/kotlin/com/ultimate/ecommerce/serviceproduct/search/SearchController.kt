@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController
 class SearchController(
     private val searchService: SearchService
 ) {
-    @GetMapping("/api/search")
+    @GetMapping("/api/service-product/search")
     fun searchProducts(@RequestParam text: String, @RequestParam tag: String): List<Product> {
         return searchService.searchByText("$text $tag")
     }
 
-    @GetMapping("/api/search/{usin}")
+    @GetMapping("/api/service-product/search/{usin}")
     fun getProduct(@PathVariable usin: String): Product? {
         return searchService.getByUsin(usin)
     }

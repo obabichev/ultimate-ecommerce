@@ -1,5 +1,5 @@
 import { OryFlow } from "../auth.types";
-import { request as __request } from "../generated/core/request";
+import { request as __request } from "../generated/service-product/core/request";
 import { useMutation, useQuery, UseQueryOptions } from "react-query";
 
 export const fetchRegistrationFlowRest = async (): Promise<OryFlow> => {

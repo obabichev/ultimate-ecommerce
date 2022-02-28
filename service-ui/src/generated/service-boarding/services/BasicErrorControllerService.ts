@@ -1,16 +1,17 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { ModelAndView } from '../models/ModelAndView';
 import { request as __request } from '../core/request';
 
 export class BasicErrorControllerService {
 
     /**
-     * error
-     * @returns any OK
+     * errorHtml
+     * @returns ModelAndView OK
      * @throws ApiError
      */
-    public static async errorUsingGet(): Promise<Record<string, any>> {
+    public static async errorHtmlUsingGet(): Promise<ModelAndView> {
         const result = await __request({
             method: 'GET',
             path: `/error`,
@@ -24,11 +25,11 @@ export class BasicErrorControllerService {
     }
 
     /**
-     * error
-     * @returns any OK
+     * errorHtml
+     * @returns ModelAndView OK
      * @throws ApiError
      */
-    public static async errorUsingHead(): Promise<Record<string, any>> {
+    public static async errorHtmlUsingHead(): Promise<ModelAndView> {
         const result = await __request({
             method: 'HEAD',
             path: `/error`,
@@ -41,11 +42,12 @@ export class BasicErrorControllerService {
     }
 
     /**
-     * error
-     * @returns any OK
+     * errorHtml
+     * @returns ModelAndView OK
+     * @returns any Created
      * @throws ApiError
      */
-    public static async errorUsingPost(): Promise<Record<string, any>> {
+    public static async errorHtmlUsingPost(): Promise<ModelAndView | any> {
         const result = await __request({
             method: 'POST',
             path: `/error`,
@@ -59,11 +61,12 @@ export class BasicErrorControllerService {
     }
 
     /**
-     * error
-     * @returns any OK
+     * errorHtml
+     * @returns ModelAndView OK
+     * @returns any Created
      * @throws ApiError
      */
-    public static async errorUsingPut(): Promise<Record<string, any>> {
+    public static async errorHtmlUsingPut(): Promise<ModelAndView | any> {
         const result = await __request({
             method: 'PUT',
             path: `/error`,
@@ -77,11 +80,11 @@ export class BasicErrorControllerService {
     }
 
     /**
-     * error
-     * @returns any OK
+     * errorHtml
+     * @returns ModelAndView OK
      * @throws ApiError
      */
-    public static async errorUsingDelete(): Promise<Record<string, any>> {
+    public static async errorHtmlUsingDelete(): Promise<ModelAndView> {
         const result = await __request({
             method: 'DELETE',
             path: `/error`,
@@ -94,11 +97,11 @@ export class BasicErrorControllerService {
     }
 
     /**
-     * error
-     * @returns any OK
+     * errorHtml
+     * @returns ModelAndView OK
      * @throws ApiError
      */
-    public static async errorUsingOptions(): Promise<Record<string, any>> {
+    public static async errorHtmlUsingOptions(): Promise<ModelAndView> {
         const result = await __request({
             method: 'OPTIONS',
             path: `/error`,
@@ -111,11 +114,11 @@ export class BasicErrorControllerService {
     }
 
     /**
-     * error
-     * @returns any OK
+     * errorHtml
+     * @returns ModelAndView OK
      * @throws ApiError
      */
-    public static async errorUsingPatch(): Promise<Record<string, any>> {
+    public static async errorHtmlUsingPatch(): Promise<ModelAndView> {
         const result = await __request({
             method: 'PATCH',
             path: `/error`,

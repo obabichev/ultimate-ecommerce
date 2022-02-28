@@ -14,7 +14,7 @@ export class TagControllerService {
     public static async getTagsUsingGet(): Promise<Array<Tag>> {
         const result = await __request({
             method: 'GET',
-            path: `/api/tag`,
+            path: `/api/service-product/tag`,
             errors: {
                 401: `Unauthorized`,
                 403: `Forbidden`,

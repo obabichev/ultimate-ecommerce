@@ -17,7 +17,7 @@ type Config = {
 }
 
 export const OpenAPI: Config = {
-    BASE: 'http://localhost:8082/',
+    BASE: 'http://$nginx_app_host/',
     VERSION: '1.0',
     WITH_CREDENTIALS: false,
     TOKEN: undefined,

@@ -18,6 +18,9 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.kafka:spring-kafka-test")
+    implementation("io.springfox:springfox-swagger2:3.0.0")
+    implementation("io.springfox:springfox-boot-starter:3.0.0")
+    implementation("io.springfox:springfox-swagger-ui:2.9.2")
 }
 
 tasks.getByName<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {

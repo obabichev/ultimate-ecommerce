@@ -19,7 +19,7 @@ class BoardingController(
 
     val logger: Logger = LoggerFactory.getLogger(BoardingController::class.java)
 
-    @PostMapping("/boarding")
+    @PostMapping("/api/service-boarding/boarding")
     fun registerProduct(@Valid @RequestBody body: RegisterProductRequestDTO): RegisterProductResponseDTO {
         logger.info("Register product: $body")
         val usin = boardingService.importProduct(body)

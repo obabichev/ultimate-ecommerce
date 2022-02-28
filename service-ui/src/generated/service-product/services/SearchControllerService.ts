@@ -19,7 +19,7 @@ export class SearchControllerService {
     ): Promise<Array<Product>> {
         const result = await __request({
             method: 'GET',
-            path: `/api/search`,
+            path: `/api/service-product/search`,
             query: {
                 'tag': tag,
                 'text': text,
@@ -44,7 +44,7 @@ export class SearchControllerService {
     ): Promise<Product> {
         const result = await __request({
             method: 'GET',
-            path: `/api/search/${usin}`,
+            path: `/api/service-product/search/${usin}`,
             errors: {
                 401: `Unauthorized`,
                 403: `Forbidden`,

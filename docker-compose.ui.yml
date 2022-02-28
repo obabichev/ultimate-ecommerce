@@ -18,7 +18,8 @@ services:
       context: service-api-gateway
     restart: on-failure
     environment:
-      BACKEND_ENDPOINT: "http://service-product:8080"
+      SERVICE_PRODUCT_ENDPOINT: "http://service-product:8080"
+      SERVICE_BOARDING_ENDPOINT: "http://service-boarding:8080"
       UI_ENDPOINT: "http://service-ui"
       KRATOS_PUBLIC_ENDPOINT: "http://kratos:4433"
     ports:
