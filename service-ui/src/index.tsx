@@ -3,9 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { App } from "./app/App";
-import { OpenAPI } from "./generated";
+import { OpenAPI as OpenAPIProduct } from "./generated/service-product";
+import { OpenAPI as OpenAPIBoarding } from "./generated/service-boarding";
 
-OpenAPI.WITH_CREDENTIALS = true;
+OpenAPIProduct.WITH_CREDENTIALS = true;
+OpenAPIProduct.BASE = "";
+OpenAPIBoarding.WITH_CREDENTIALS = true;
+OpenAPIBoarding.BASE = "";
 
 ReactDOM.render(
   <React.StrictMode>

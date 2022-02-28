@@ -4,10 +4,7 @@ import { AuthContextProvider } from "./AuthContext";
 import { CssBaseline } from "@mui/material";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import { OpenAPI } from "../generated";
 import { SnackbarProvider } from "notistack";
-
-OpenAPI.BASE = "";
 
 const queryClient = new QueryClient();
 
