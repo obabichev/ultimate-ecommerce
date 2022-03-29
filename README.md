@@ -56,3 +56,5 @@ docker-compose -f docker-compose.base.yml -f docker-compose.service.yml -f docke
 ```shell
 ENDPOINT=127.0.0.1 DATA_PATH=products-sample.json node scripts/import-products.js
 ```
+
+docker-compose -f docker-compose.base.yml -f docker-compose.service.yml -f docker-compose.ui.yml  up --force-recreate --build elasticsearch service-product shop-api-db service-api-gateway service-ui 

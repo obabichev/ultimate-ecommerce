@@ -17,6 +17,7 @@ services:
     restart: on-failure
     networks:
       - ecommerce
+    platform: linux/amd64
 
   kratos:
     depends_on:
@@ -40,6 +41,7 @@ services:
         target: /etc/config/kratos
     networks:
       - ecommerce
+    platform: linux/amd64
 
   mailslurper:
     image: oryd/mailslurper:latest-smtps
@@ -48,6 +50,7 @@ services:
       - '4437:4437'
     networks:
       - ecommerce
+    platform: linux/amd64
 
   oathkeeper:
     image: oryd/oathkeeper:v0.38
@@ -65,6 +68,7 @@ services:
       - ecommerce
     volumes:
       - ./contrib/quickstart/oathkeeper:/etc/config/oathkeeper
+    platform: linux/amd64
 
 volumes:
   kratos-sqlite:

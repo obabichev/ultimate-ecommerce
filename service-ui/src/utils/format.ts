@@ -1,5 +1,5 @@
 import { Profile } from "../profile.types";
-import { Product } from "../generated";
+import { Product } from "../generated/service-product";
 
 export const formatProfileName = (profile: Profile) => {
   return [profile.identity.traits.name.first, profile.identity.traits.name.last]

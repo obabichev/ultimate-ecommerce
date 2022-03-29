@@ -1,5 +1,5 @@
 import React from "react";
-import { Product } from "../../generated";
+import { Product } from "../../generated/service-product";
 import { List, ListItemButton, ListItemText } from "@mui/material";
 import ProductListItem from "./ProductListItem";
 

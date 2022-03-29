@@ -13,6 +13,7 @@ services:
       - 27017:27017
     networks:
       - ecommerce
+    platform: linux/amd64
 
   service-boarding-db:
     image: postgres:12
@@ -24,9 +25,10 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - service-boarding-db-data:/var/lib/postgresql/data/
+      - service-boarding-db-data:/var/lib/postgresl/data/
     networks:
       - ecommerce
+    platform: linux/amd64
 
   zookeeper:
     image: wurstmeister/zookeeper
@@ -36,6 +38,7 @@ services:
     restart: always
     networks:
       - ecommerce
+    platform: linux/amd64
 
   kafka:
     image: wurstmeister/kafka
@@ -58,6 +61,7 @@ services:
       - zookeeper
     networks:
       - ecommerce
+    platform: linux/amd64
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.15.0
@@ -71,6 +75,7 @@ services:
       - elasticsearch-data:/usr/share/elasticsearch/data
     networks:
       - ecommerce
+    platform: linux/amd64
 
 volumes:
   service-product-db-data:

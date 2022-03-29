@@ -16,7 +16,7 @@ plugins {
 
 allprojects {
     group = "com.ultimate.ecommerce"
-    version = "0.0.1-SNAPSHOT"
+    version = "0.0.2-SNAPSHOT"
 
     tasks.withType<KotlinCompile> {
         kotlinOptions {

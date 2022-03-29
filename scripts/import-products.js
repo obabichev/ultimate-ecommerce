@@ -8,7 +8,7 @@ async function exportProduct(hostname, product) {
         const options = {
             hostname,
             port: 8081,
-            path: '/boarding',
+            path: '/api/service-boarding/boarding',
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

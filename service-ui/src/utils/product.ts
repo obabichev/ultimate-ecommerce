@@ -1,4 +1,4 @@
-import { Product } from "../generated";
+import { Product } from "../generated/service-product";
 
 const MAXIMUM_RATING = 5;
 

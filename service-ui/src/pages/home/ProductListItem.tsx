@@ -1,5 +1,5 @@
 import React from "react";
-import { Product } from "../../generated";
+import { Product } from "../../generated/service-product";
 import { Grid, Typography, Rating } from "@mui/material";
 import { formatPrice, formatProductLanguage } from "../../utils/format";
 import { countProductRating } from "../../utils/product";
@@ -34,8 +34,8 @@ const ProductListItem: React.FunctionComponent<ProductListItemProps> = ({
           precision={0.2}
           readOnly
         />
-        {product.sellOptions.map((sellOption) => (
-          <div>
+        {product.sellOptions.map((sellOption, index) => (
+          <div key={index}>
             <Typography variant="body1">{sellOption.type}</Typography>
             <Typography variant="subtitle1">
               {formatPrice(sellOption.price)} {sellOption.currency}

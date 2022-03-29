@@ -57,20 +57,25 @@ export const useGetRegistrationFlow = (
   });
 };
 
-export const fetchProfile = async (): Promise<Profile> => {
-  const result = await __request({
-    method: "GET",
-    path: `/sessions/whoami`,
-    errors: {
-      401: `Unauthorized`,
-      403: `Forbidden`,
-      404: `Not Found`,
-    },
-  });
-  return result.body;
+export const fetchProfile = async (): Promise<Profile | null> => {
+  try {
+    const result = await __request({
+      method: "GET",
+      path: `/sessions/whoami`,
+      errors: {
+        401: `Unauthorized`,
+        403: `Forbidden`,
+        404: `Not Found`,
+      },
+    });
+    return result.body;
+  } catch (error) {
+    console.log("User profile was not loaded");
+    return null;
+  }
 };
 
-export const useGetProfile = (options?: UseQueryOptions<Profile>) => {
+export const useGetProfile = (options?: UseQueryOptions<Profile | null>) => {
   return useQuery({
     queryKey: ["profile"],
     queryFn: () => fetchProfile(),
@@ -94,10 +99,7 @@ export const fetchAuthError = async (id: string): Promise<any> => {
   return result.body;
 };
 
-export const useGetAuthError = (
-    id: string,
-    options?: UseQueryOptions<any>
-) => {
+export const useGetAuthError = (id: string, options?: UseQueryOptions<any>) => {
   return useQuery({
     queryKey: ["get-auth-error", id],
     queryFn: () => fetchAuthError(id),

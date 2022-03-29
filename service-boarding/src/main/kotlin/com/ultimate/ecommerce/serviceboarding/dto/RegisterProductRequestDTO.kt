@@ -4,16 +4,16 @@ import javax.validation.constraints.NotBlank
 
 
 data class RegisterProductRequestDTO(
-    @field:NotBlank
+    @field:NotBlank(message = "Name is mandatory")
     val title: String,
 
     @field:NotBlank
     val description: String,
 
-    @field:NotBlank
+//    @field:NotBlank
     val attributes: Map<String, String>,
 
-    @field:NotBlank
+//    @field:NotBlank
     val images: List<String>,
 
     val ratings: List<Rating>,

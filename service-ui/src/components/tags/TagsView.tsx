@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Tag } from "../../generated";
+import { Tag } from "../../generated/service-product";
 import { AggregatedTags, aggregateTags } from "./aggregateTags";
 import TreeView from "@mui/lab/TreeView";
 import TreeItem from "@mui/lab/TreeItem";

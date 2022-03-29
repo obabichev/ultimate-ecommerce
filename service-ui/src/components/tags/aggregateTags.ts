@@ -1,4 +1,4 @@
-import { Tag } from "../../generated";
+import { Tag } from "../../generated/service-product";
 
 export type AggregatedTags = {
   tags: {
