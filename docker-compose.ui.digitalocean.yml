@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  service-ui:
+    build:
+      context: service-ui
+    restart: on-failure
+    ports:
+      - 3002:80
+    networks:
+      - ecommerce
+
+  service-api-gateway:
+    build:
+      context: service-api-gateway
+    restart: on-failure
+    environment:
+      SERVICE_PRODUCT_ENDPOINT: "http://service-product:8080"
+      SERVICE_BOARDING_ENDPOINT: "http://service-boarding:8080"
+      UI_ENDPOINT: "http://service-ui"
+      KRATOS_PUBLIC_ENDPOINT: "http://kratos:4433"
+    ports:
+      - 3001:80
+    networks:
+      - ecommerce
+
+networks:
+  ecommerce:
+    external: true
