@@ -9,7 +9,8 @@ import org.springframework.stereotype.Service
 @Service
 class BoardingService(
     private val usinService: UsinService,
-    private val kafkaService: KafkaService
+//    private val kafkaService: KafkaService,
+    val elasticsearchService: ElasticsearchService
 ) {
     fun importProduct(dto: RegisterProductRequestDTO): Usin {
         val usin = usinService.generateUniqueUsin()
@@ -23,7 +24,8 @@ class BoardingService(
             sellOptions = dto.sellOptions,
             tag = dto.tag
         )
-        kafkaService.sendProductRegisteredEvent(product)
+        elasticsearchService.saveProduct(com.ultimate.ecommerce.serviceboarding.model.Product.fromEventProduct(product))
+//        kafkaService.sendProductRegisteredEvent(product)
         return usin
     }
 
@@ -38,7 +40,8 @@ class BoardingService(
             sellOptions = dto.sellOptions,
             tag = dto.tag
         )
-        kafkaService.sendProductRegisteredEvent(product)
+        elasticsearchService.saveProduct(com.ultimate.ecommerce.serviceboarding.model.Product.fromEventProduct(product))
+//        kafkaService.sendProductRegisteredEvent(product)
         return Usin(product.usin)
     }
 }

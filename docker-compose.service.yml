@@ -1,4 +1,4 @@
-version: '3.9'
+1version: '3.9'
 
 services:
   service-boarding:
@@ -11,6 +11,8 @@ services:
 
       KAFKA_BOOTSTRAP_SERVERS: "kafka:9092"
       KAFKA_GROUP_ID: "service-boarding-group"
+
+      ELASTICSEARCH_URL: "elasticsearch:9200"
     ports:
       - 8081:8080
     restart: on-failure
