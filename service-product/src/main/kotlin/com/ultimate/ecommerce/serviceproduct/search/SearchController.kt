@@ -11,8 +11,8 @@ class SearchController(
     private val searchService: SearchService
 ) {
     @GetMapping("/api/service-product/search")
-    fun searchProducts(@RequestParam text: String, @RequestParam tag: String): List<Product> {
-        return searchService.searchByText("$text $tag")
+    fun searchProducts(@RequestParam text: String?, @RequestParam tag: String?): List<Product> {
+        return searchService.searchByText("${text ?: ""} ${tag ?: ""}")
     }
 
     @GetMapping("/api/service-product/search/{usin}")
